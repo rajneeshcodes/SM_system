@@ -1,0 +1,27 @@
+{% extends 'blog/basic.html' %}
+
+{% block title %}feedback page{% endblock %}
+
+{% block body %}
+{% load static %}
+
+  <div class="container" align="center">
+    <div class="contact-box">
+      <div class="left">
+        <img src="{% static 'images/feedback.png' %}" style="margin-top: 100px; height: 350px; width: 350px;">
+      </div>
+      <div class="right">
+        <h2>Feedback</h2>
+        <form  method="post">
+          {% csrf_token %}
+        <input type="text" class="field" placeholder="Your First Name" required name="fname">
+        <input type="text" class="field" placeholder="Your Last Name" required name="lname">
+        <input type="text" class="field" placeholder="Your Title" required name="title">
+        <input type="email" class="field" placeholder="Your Email" required name="email">
+        <input type="text" class="field" placeholder="Organization" name="organization">
+        <textarea placeholder="Please describe your feature/Improvement request" class="field" name="message"></textarea>
+        <button class="btn">Send</button>
+      </div>
+    </div>
+  </div>
+{% endblock %}
